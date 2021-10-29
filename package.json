@@ -8,5 +8,10 @@
     "cypress": "^8.7.0",
     "jest": "^27.3.1",
     "superstatic": "^7.1.0"
+  },
+  "scripts": {
+    "start": "node serve.js",
+    "test:unit": "jest --passWithNoTests --rootDir=spec",
+    "test": "cypress open"
   }
 }
