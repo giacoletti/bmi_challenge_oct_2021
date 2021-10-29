@@ -12,7 +12,11 @@ describe('BMI Calculator', () => {
         });
 
         it('is expected to return a numeric value (float with 2 decimals) if given correct arguments', () => {
-            expect(results).toEqual(22.13);
+            expect(results.value).toEqual(22.13);
+        });
+
+        it("is expected to return BMI classification 'Normal Weight'", () => {
+            expect(results.classification).toEqual('Normal Weight');
         });
 
     });
