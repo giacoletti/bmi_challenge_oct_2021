@@ -73,4 +73,34 @@ describe('User fills out the BMI form', () => {
 
     }); 
 
+    describe('with invalid weight field value', () => {
+
+        before(() => {
+            cy.visit('/');
+            cy.get('input[id=height]').type('174');
+            cy.get('input[id=weight]').type('hello@#à°');
+            cy.get('input[id=submit-button]').click();
+        });
+
+        it('is expected to see an error message about invalid weight value', () => {
+            cy.get('div[id=response-message]').should('contain.text', 'Weight is invalid, please enter a valid number!');
+        });
+
+    });
+
+    describe('with negative weight field value', () => {
+
+        before(() => {
+            cy.visit('/');
+            cy.get('input[id=height]').type('174');
+            cy.get('input[id=weight]').type('-67');
+            cy.get('input[id=submit-button]').click();
+        });
+
+        it('is expected to see an error message about invalid weight value', () => {
+            cy.get('div[id=response-message]').should('contain.text', 'Weight is invalid, please enter a valid number!');
+        });
+
+    });
+
 });

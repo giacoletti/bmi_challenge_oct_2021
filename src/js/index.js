@@ -12,6 +12,8 @@ button.addEventListener('click', () => {
         messageElement.innerText = 'Enter a weight, please!';
     } else if ((!isNumber(heightInput.value)) || (heightInput.value <= 0)) {
         messageElement.innerText = 'Height is invalid, please enter a valid number!';
+    } else if ((!isNumber(weightInput.value)) || (weightInput.value <= 0)) {
+        messageElement.innerText = 'Weight is invalid, please enter a valid number!';
     } else {
         const BMIResult = BMI.calculateBMIMetric({ height: heightInput.value, weight: weightInput.value });
         messageElement.innerText = `BMI: ${BMIResult.value} - ${BMIResult.classification}`;
