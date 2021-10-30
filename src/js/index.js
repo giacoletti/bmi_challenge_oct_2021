@@ -6,6 +6,10 @@ const messageElement = document.getElementById('response-message');
 const BMI = new BMICalculator();
 
 button.addEventListener('click', () => {
-    const BMIResult = BMI.calculateBMIMetric({ height: heightInput.value, weight: weightInput.value });
-    messageElement.innerText = `BMI: ${BMIResult.value}, ${BMIResult.classification}`;
+    if (heightInput.value === '') {
+        messageElement.innerText = 'Enter a height, please!';
+    } else {
+        const BMIResult = BMI.calculateBMIMetric({ height: heightInput.value, weight: weightInput.value });
+        messageElement.innerText = `BMI: ${BMIResult.value} - ${BMIResult.classification}`;
+    }
 });
